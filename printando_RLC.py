@@ -1,3 +1,5 @@
 print(f"Impedância de Surto (Zs): {Zs:.2f} ohms")
 print(f"Impedância Característica (Zc): {Zc:.2f} ohms")
 print(f"Potência Natural: {potencia_natural:.2f} MW")    
+
+

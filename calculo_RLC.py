@@ -9,8 +9,8 @@ tensao = 500  ## kV (Tensão de linha)
 ## Valores iniciais de R L C (por km)
 resistencia_feixe = 0.0733  ## ohms/km
 resistencia = resistencia_feixe / 4
-indutancia = 0.746e-3       ## Convertido para H/km (mH -> H)
-capacitancia = 14.88e-9     ## Convertido para F/km (nF -> F)
+indutancia = 0.746e-3       ## Convertido para H/km 
+capacitancia = 14.88e-9     ## Convertido para F/km 
 G = 0                       ## Condutância (geralmente desprezada ou zero)
 j = complex(0, 1)           ## Unidade imaginária
 
