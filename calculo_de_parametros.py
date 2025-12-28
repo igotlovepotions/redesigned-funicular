@@ -3,25 +3,25 @@ import math
 import cmath
 from config import CABOS, FREQUENCIA, RESISTIVIDADE_SOLO, CONDUTOR_RMG, PARA_RAIO_RMG
 
-def calcular_matrizes():
+def calcular_matrizes(cabos_dict=CABOS, freq=FREQUENCIA, ro=RESISTIVIDADE_SOLO):
     # Identificar condutores
-    nomes = list(CABOS.keys())
+    nomes = list(cabos_dict.keys())
     n = len(nomes)
     
     # Prepara listas ordenadas para acesso por índice
     # É importante manter uma ordem consistente (ex: A, B, C, PR1)
-    condutores = [CABOS[nome] for nome in nomes]
+    condutores = [cabos_dict[nome] for nome in nomes]
     
     # Matriz de Distâncias e Matriz L
     # Matriz Z (Impedância Longitudinal)
     # Z_ii = Ri + j*omega*kl * ln(De/RMG)
     # Z_ij = j*omega*kl * ln(De/Dij)
     
-    omega = 2 * np.pi * FREQUENCIA
+    omega = 2 * np.pi * freq
     
     # Constante de Carson para retorno pelo solo (aproximação)
     # De = 658.4 * sqrt(rho / f)
-    De = 658.37 * math.sqrt(RESISTIVIDADE_SOLO / FREQUENCIA)
+    De = 658.37 * math.sqrt(ro / freq)
     
     # Matriz de impedância primitiva (Z_hat)
     # Vamos considerar apenas a parte reativa indutiva + correção de Carson simplificada por enquanto,

@@ -11,7 +11,11 @@ def main():
     # Comentado para execução em ambiente headless se necessário, mas o user pediu "fazer o 1, 2, 3"
     # Se o user tiver display, vai abrir a janela.
     try:
-        plotar_geometria()
+        fig = plotar_geometria()
+        # Se estiver rodando interativamente via terminal, plt.show() seria chamado dentro de plotar_geometria
+        # mas agora ela retorna a figura.
+        import matplotlib.pyplot as plt
+        plt.show()
     except Exception as e:
         print(f"Não foi possível plotar a geometria (sem display?): {e}")
 

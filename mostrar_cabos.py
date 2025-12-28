@@ -2,13 +2,13 @@ import matplotlib.pyplot as plt
 import math
 from config import CABOS
 
-def plotar_geometria():
+def plotar_geometria(cabos_dict=CABOS):
     fig, ax = plt.subplots(figsize=(10, 6))
 
     # Listas para definir limites do gráfico
     alturas = []
     
-    for nome, dados in CABOS.items():
+    for nome, dados in cabos_dict.items():
         x = dados['x']
         y = dados['y']
         tipo = dados['tipo']
@@ -49,7 +49,8 @@ def plotar_geometria():
     ax.axhline(y=0, color='black', linewidth=1)
 
     plt.tight_layout()
-    plt.show()
+    return fig
 
 if __name__ == "__main__":
     plotar_geometria()
+    plt.show()
